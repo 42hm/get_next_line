@@ -6,7 +6,7 @@
 /*   By: hmoon <hmoon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/05 06:08:56 by hmoon             #+#    #+#             */
-/*   Updated: 2021/06/06 12:13:44 by hmoon            ###   ########.fr       */
+/*   Updated: 2022/01/17 17:54:02 by hmoon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 
 	if (!s1 || !s2)
 		return (NULL);
-	ret = (char*)malloc((ft_strlen(s1) + ft_strlen(s2) + 1) * sizeof(char));
+	ret = (char *)malloc((ft_strlen(s1) + ft_strlen(s2) + 1) * sizeof(char));
 	if (!ret)
 		return (NULL);
 	i = 0;
@@ -45,7 +45,7 @@ char	*ft_strchr(const char *s, int c)
 	while (*s != '\0')
 	{
 		if (*s == (unsigned char)c)
-			return ((char*)s);
+			return ((char *)s);
 		s++;
 	}
 	if ((unsigned char)c == '\0')
@@ -59,7 +59,8 @@ char	*ft_strdup(const char *s1)
 	size_t		i;
 
 	i = 0;
-	if (!(temp = (char*)malloc((ft_strlen(s1) + 1) * sizeof(char))))
+	temp = (char *)malloc((ft_strlen(s1) + 1) * sizeof(char));
+	if (!temp)
 		return (NULL);
 	while (s1[i] != '\0')
 	{
@@ -82,7 +83,8 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	len_s = ft_strlen(s);
 	if (len_s + start < len)
 		len = len_s - start;
-	if (!(ret = (char*)malloc((len + 1) * sizeof(char))))
+	ret = (char *)malloc((len + 1) * sizeof(char));
+	if (!ret)
 		return (NULL);
 	if (len_s > start)
 	{
@@ -98,7 +100,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 
 size_t	ft_strlen(const char *s)
 {
-	size_t len;
+	size_t	len;
 
 	len = 0;
 	while (s[len] != '\0')

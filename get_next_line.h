@@ -6,7 +6,7 @@
 /*   By: hmoon <hmoon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/05 10:15:31 by hmoon             #+#    #+#             */
-/*   Updated: 2021/06/10 14:45:49 by hmoon            ###   ########.fr       */
+/*   Updated: 2021/06/06 12:31:49 by hmoon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,8 @@
 #  define OPEN_MAX 256
 # endif
 
-# ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 20
-# endif
-
 int		read_buff(int fd, char **save);
-int		division(char **save, char **line, int ret);
+void	division(char **save, char **line, int ret);
 int		get_next_line(int fd, char **line);
 
 char	*ft_strjoin(char const *s1, char const *s2);
