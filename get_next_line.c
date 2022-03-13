@@ -6,7 +6,7 @@
 /*   By: hmoon <hmoon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/05 21:54:51 by hmoon             #+#    #+#             */
-/*   Updated: 2022/01/17 17:53:32 by hmoon            ###   ########.fr       */
+/*   Updated: 2022/03/13 11:47:47 by hmoon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,16 +69,16 @@ void	division(char **save, char **line, int ret)
 
 int	get_next_line(int fd, char **line)
 {
-	static char	*save[OPEN_MAX];
+	static char	*save;
 	int			ret;
 
-	if (fd < 0 || fd > OPEN_MAX || !line || BUFFER_SIZE <= 0)
+	if (fd < 0 || !line || BUFFER_SIZE <= 0)
 		return (-1);
-	if (save [fd] == NULL)
-		save[fd] = ft_strdup("");
+	if (save == NULL)
+		save = ft_strdup("");
 	ret = 1;
-	while (ret > 0 && (ft_strchr(save[fd], '\n') == 0))
-		ret = read_buff(fd, &save[fd]);
-	division(&save[fd], line, ret);
-	return (ret);
+	while (ret > 0 && (ft_strchr(save, '\n') == 0))
+		ret = read_buff(fd, &save);
+	division(&save, line, ret);
+	return (line);
 }

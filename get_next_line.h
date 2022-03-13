@@ -6,7 +6,7 @@
 /*   By: hmoon <hmoon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/05 10:15:31 by hmoon             #+#    #+#             */
-/*   Updated: 2021/06/06 12:31:49 by hmoon            ###   ########.fr       */
+/*   Updated: 2022/03/13 11:45:01 by hmoon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@
 # include <unistd.h>
 # include <stdlib.h>
 
-# ifndef OPEN_MAX
-#  define OPEN_MAX 256
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 256
 # endif
 
 int		read_buff(int fd, char **save);
